@@ -4110,7 +4110,7 @@ table.matrix td{padding:3px 5px;min-width:30px;}
   <section class="top">
     <div class="titleRow">
       <h1>Gram-Schmidt 3D</h1>
-      <div class="stats"><span class="pill" id="stepPill">step 1/15</span><span class="pill" id="missPill">0 misses</span><button class="btn" id="newBtn">Start over</button></div>
+      <div class="stats"><span class="pill" id="stepPill">step 1/15</span><span class="pill" id="missPill">0 misses</span><button class="btn" id="newBtn">start over</button></div>
     </div>
     <div class="instructions">Unlock an orthonormal basis from the columns of A. The plot shows what has been built; the QR ledger records what survives.</div>
   </section>
@@ -4200,9 +4200,9 @@ const seedParam = new URLSearchParams(window.location.search).get('seed');
 const seedToken = seedParam ? String(seedParam) : makeDateTimeSeed();
 const gameSeed = normalizeSeed(seedToken);
 try{
-  if(!seedParam && window.history && window.location && window.location.href){
+  if(seedParam && window.history && window.location && window.location.href){
     const url = new URL(window.location.href);
-    url.searchParams.set('seed', seedToken);
+    url.searchParams.delete('seed');
     window.history.replaceState(null, '', url.toString());
   }
 }catch(e){}
